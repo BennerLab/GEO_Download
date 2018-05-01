@@ -23,12 +23,10 @@ def main():
         for sra in args.sra:
 
             #Get metadata.
-            sys.stdout.write("Getting SRA metadata for "+sra)
             num_spots = get_num_spots(sra)
             intervals = divide_spots(num_spots,args.num_cpu)
 
             #Run the fastq-dump.
-            sys.stdout.write("Performing parallelized fastq-dump")
             parallel_dump(sra,intervals,args.paired_end,args.outdir,args.compression)
 
         #Clear the scratch if specified.

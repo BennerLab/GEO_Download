@@ -24,14 +24,11 @@ Define a function that can divide the spots into intervals.
 '''
 def divide_spots(num_spots,num_threads):
 
-    step = num_spots/num_threads
-    intervals = range(0,num_spots+1,step)
+    step = int(num_spots/num_threads)
+    intervals = list(range(0,num_spots+1,step))
     intervals[-1] = num_spots
 
     return [[intervals[i]+1,intervals[i+1]] for i in range(len(intervals)-1)]
-
-sra = 'SRR5444627'
-threads = 10
 
 '''
 Define a function that can execute a parallelized fastq-dump. This is essentially a wrapper for fastq-dump that takes 
