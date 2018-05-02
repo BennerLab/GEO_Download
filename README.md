@@ -14,19 +14,14 @@ conda install sra-tools
 fastq-dump has a weird default setting where it writes to your scratch automatically to cache the SRA files. This is a good function as fetching the SRA file is more time costly than dumping the SRA to a fastq directly. However, despite the speed gain, there is an issue. By writing to your default scratch, it can mess up your local memory. Thus, I suggest creating your own temporary scratch to avoid this. Here is how you do this: [SRA Toolkit Configuration Wiki](https://github.com/ncbi/sra-tools/wiki/Toolkit-Configuration)
 
 This is completely optional but suggested heavily. Remember this new scratch because you want to delete this after each batch download. This program actually has an option to do this automatically.
-
-To make this script executable (i.e., you don't have to type python /path_to_script/modified_fastq_dump.py), add a shebang command at the top of the modified_fastq_dump.py file like so:
-```
-#!/gpfs/data01/sjroth/software/anaconda3/bin/python3.6
-```
-Then, run the following command:
 ```
 chmod +x /path_to_script/modified_fastq_dump.py
 ```
-Finally, edit your .bashrc:
+Then, edit your .bashrc:
 ```
 export PATH=/gpfs/data01/sjroth/Pipelines/GEO_Download:$PATH
 ```
+Now, you can run your code without the python prefix.
 
 ## Running the program
 Once you have the prequisites, this program is very simple to run. If you have this installed as an executable, omit the python step as it is redundant.
