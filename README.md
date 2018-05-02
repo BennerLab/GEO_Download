@@ -15,8 +15,21 @@ fastq-dump has a weird default setting where it writes to your scratch automatic
 
 This is completely optional but suggested heavily. Remember this new scratch because you want to delete this after each batch download. This program actually has an option to do this automatically.
 
+To make this script executable (i.e., you don't have to type python /path_to_script/modified_fastq_dump.py), add a shebang command at the top of the modified_fastq_dump.py file like so:
+```
+#!/gpfs/data01/sjroth/software/anaconda3/bin/python3.6
+```
+Then, run the following command:
+```
+chmod +x /path_to_script/modified_fastq_dump.py
+```
+Finally, edit your .bashrc:
+```
+export PATH=/gpfs/data01/sjroth/Pipelines/GEO_Download:$PATH
+```
+
 ## Running the program
-Once you have the prequisites, this program is very simple to run.
+Once you have the prequisites, this program is very simple to run. If you have this installed as an executable, omit the python step as it is redundant.
 ```
 python modified_fastq_dump.py -s SRA_IDs -n NUM_CPU -o OUTDIR -c COMPRESSION_METHOD --scratch SCRATCH_LOCATION
 ```
