@@ -1,4 +1,4 @@
-#!/gpfs/data01/sjroth/software/anaconda3/bin/python3.6
+#!/usr/bin/env python3
 '''
 Script for performing a modified fastq-dump. Can do this for batches of files.
 '''
