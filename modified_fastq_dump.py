@@ -9,7 +9,7 @@ def main():
 
     #Get command line arguments.
     parser = argparse.ArgumentParser()
-    parser.add_argument("-s","--sra",help="SRA ID",action="append")
+    parser.add_argument("-s","--sra",help="SRA ID",nargs='+',action="store")
     parser.add_argument("-n","--num-cpu",help="Number of CPUs",type=int,default=1)
     parser.add_argument('-o',"--outdir",help="Output Directory",default=".")
     parser.add_argument("--paired_end",help="Paired End Experiment",action="store_true")
